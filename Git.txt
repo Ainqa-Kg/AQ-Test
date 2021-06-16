@@ -1,0 +1,311 @@
+------------------------GIT <<GLOBAL INFORMATION TRACKER>>--------------------
+
+free and open source distributed  << version control system >>  <<VCS>>
+software designed to record and control changes made to files over time
+ability to revert back to previous file version
+compares changes bt two versions
+
+
+CODE HOSTING SERVICE PROVIDERS
+	GitHub
+	Bitbucket
+	GitLab
+
+
+
+STAGES OF FILE
+	Committed
+	Modified
+	Staged	
+
+
+STAGES OF GIT PROJECT
+	working directory
+	staging area
+	.git directory (repository)
+
+
+Using command line
+	windows---Command prommpt/powewrshell
+	mac &linux--terminal
+
+
+<<<COMMANDS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+pwd == print working directory
+cd == change directory
+cd.. == one folder upwards
+ls == list files for mac & linux
+dir == list files for windows
+touch == creating new file in mac & linux
+copy can == creating new file in windows
+mkdir == new directory
+
+
+INSTALLING GIT =========================================================
+
+https://git-scm.com/download/win
+
+git --version==== checking installation
+git config --global user.name " name"
+git config --global user.email " mail id "
+git config --list (configuration)
+
+
+.git------------------contais meta data
+
+INITIALIZING NEW GIT**************************************************
+cd desktop/name
+git init (initializing)
+
+
+
+
+new file>>Staging area to commit(git add)>> commit
+
+
+
+FILES TRACKED BY GIT==================================================
+Commited---unmodified changes from the last commit snapshot
+Modified---Changes made to files since last commit snapshot
+Staged---chages marked to be added into the ext commit snapshot ( to commit )
+
+
+
+
+HOSTING GIT-------------------------------------------------------------
+GITHUB
+sign in/sign up
+unlimited public repository/unlimited private repository  (upgradable) 
+
+HTTPS URL  & SSH URL 
+echo "# name" >> README.md
+git add . ( adding to staging area)
+git commit -m "first commit"
+git remote add origin https:// url from github (connecting local repositories to git)
+git push -u origin master (push repository to git)
+
+
+GIT COMMANDS---------------------------------------------------------
+clear---clear
+git status---status of project/files
+touch--- new file
+git add---to add untracked file to git (new file is in untracked portion/waiting to be commited)
+open -a atom name.txt---add new employee info
+git status -s
+man git-----------------------------------Full Manual
+git help----------------------short manual
+
+M=Modified
+A=New file added to staging area
+??=New file untracked
+git diff --staged (details)
+
+diff --git a/file.txt b/file.txt---(compared files)
+Index 984367.....fgerg4  100644 (file metadata)
+--a/file.txt
+++b/file.txt
+@@ -12, 2 +12, 3 @@ (chunck header) (-12 begins line 12 and 2 nubers changed in file a)
+-old content
++new content (chunck changes)
+
+git commit -a -m "add new vendor" (automatically stages)
+git push origin master (applying changes to respository)
+git log (list commit made to our project)
+git log -1
+git log --oneline
+git log --stat (detailed view)
+git log --patch
+q (quit)
+git rm file name (to remove/git stop tracking)
+git rm --cached (to stop tracking bt not to delete)
+git mv README.md README (moving)
+open http://git-school.github.io/visualizing-git (branches)
+git checkout -b new_branch (creates new branch & travel along)
+git commit
+git checkout master (to master branch)
+
+git checkout -b new_branch (create branch and checkout)
+git commit "remove file name"
+git stash (save current working directory)
+
+
+git add file ( adding to staging area)
+git commit -m "file" (for commit)
+
+git merge new_branch (open an tool called vem)
+
+git reset (move commits from history to staging area)
+
+
+
+Three options of Git reset----------------------------
+git reset --soft (move specific commit to staging area)
+git reset --mixed (default......it move changes to working dir)
+git reset --hard (all changes will be deleted)
+
+
+
+git push origin master ( changes were updated locally & pushed to master)
+
+git clone ( clone a project on git)
+
+
+
+
+
+
+
+--------------------------GIT ADMINISTRATION------------------------------------
+ 
+
+Git hosting options
+
+	managed service (github)
+	self managed service()
+	third party solutions(gitlab,bitbucket)
+
+
+Git protocols
+	local protocol(within org) used var
+	remote protocols(over large vol) uses ssh/http/s
+
+
+ssh protocol---enable remote connection via SSH connection
+http/s protocol---enables remote communication over http/https
+
+
+Base virtual machine------------------------------------------------------
+
+
+
+
+ssh config approach------------------------------------------------------
+	create an initial repository
+	decide authentication approach
+	configure access for users
+	configure ssh to limit access
+Authentication approach
+	single user approach	(eg github)
+ 	multi user approach
+
+
+
+
+
+--------------------------------git client-----------------------------
+ssh git@ ip address (for login)
+sudo adduser david
+sudo usermod -aG sudo david
+su - git
+git config --global user.name " name"
+git config --global user.email "mail id"                  111
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+ssh keygen
+cat .ssh/id_rsa.pub
+
+
+
+
+git clone@ip address :/home/git/repo1.git
+vim readme
+git add .
+git commit -m "initial commit"   (any name)               333
+git push origin master
+
+
+
+
+
+--------------------------------git server-----------------------------
+sudo adduser git
+sudo usermod -aG sudo david
+su - git
+mkdir .ssh
+chmod 700 ~/.ssh
+vim ~/.ssh/authorized_keys (copy key from client and paste here)                 222
+chmod 600 ~/.ssh/authorized_keys 
+mkdir repo1.git
+cd repo1.git
+git--bare init
+
+
+
+
+which git-shell
+sudo vim /etc/shells(edit this file //// add /usr/bin/git-shell )                555
+sudo chsh git -s $ (which git-shell)    (blocking interactive process)
+ 
+no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty   (add this file to eash key to block )
+
+
+
+
+-----------------User Management-----------------------------------------
+
+vim createUser.sh (create a script for automate adding user id process)
+vim populateUsers.sh (contains user names)
+
+chmod 700 createUser.sh populate.sh (making both files executable)               444
+sudo ./populateUsers.sh (create keys for all users)
+ 
+
+
+--------------------------------git hooks----------------------------------------
+client side hook
+server side hook
+
+
+
+
+
+-------------------------------------Gitolite-----------------------------------
+Administration steps
+	manage user keys and ssh permissions
+	manually create bare repositories
+	enforce team policies using server side git hooks
+	enforce repositories and branch specificnpermission with git hooks
+
+
+
+
+
+---------------------------GITOLITE---------------------------------------------
+
+
+open source utility that automates many aspects of hosting your own git server
+including:  
+
+	user management
+	repository creation
+	hook management
+	access control
+	
+
+
+
+
+
+
+-------------------------------Git for Http----------------------------------
+install apache
+setup HTTPS
+configure Apache to Gitolite
+update gitolitr to work with Http protocol
+
+
+
+
+
+--------------------------------Gitweb----------------------------------------
+ 
+install gitweb on git server
+config permission
+config gitweb and gitolite
+create virtual host for gitweb
+update gitolite
+
+
+
+ 
